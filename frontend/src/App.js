@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import {
+    BrowserRouter as Router,
+} from "react-router-dom"
+import Nav from "./components/Nav";
+import uwu2 from "./components/video/uwu2.mp4"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+
+
+    render() {
+        return (
+            <Router>
+                <div>
+                    <Nav />
+                </div>
+                <div className="video">
+                    <video autoPlay loop muted>
+                        <source src={uwu2} type="video/mp4" />
+                    </video>
+                </div>
+                <div className="fancy">
+                    <p>Användarnamn</p>
+                    <input id="username" type="text" name="username"/>
+                    <p>Lösenord</p>
+                    <input id="password" type="text" name="password"/><br/>
+                    <button>Logga in</button>
+                </div>
+            </Router>
+        );
+    }
 }
+
 
 export default App;
